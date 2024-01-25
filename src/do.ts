@@ -11,7 +11,7 @@ export type PerformOptions = {
 
 export type Perform<S> = {
     <T>(parser: Parser<T, S>, options?: PerformOptions): T;
-    try<T, U = T>(defaultValue: T, runner: () => U): T | U;
+    try<const T, U = T>(defaultValue: T, runner: () => U): T | U;
 };
 
 export const qo = <T, S>(

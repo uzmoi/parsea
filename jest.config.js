@@ -11,4 +11,5 @@ export default {
     coverageDirectory: "coverage",
     coverageProvider: "v8",
     transform: { "\\.ts$": "@swc/jest" },
+    moduleNameMapper: { "^parsea": "<rootDir>/src" },
 };

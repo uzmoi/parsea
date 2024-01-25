@@ -1,4 +1,4 @@
-import * as P from "../src";
+import * as P from "parsea";
 
 export type Expr =
     | { type: "Bool"; value: boolean }

@@ -1,4 +1,4 @@
-import { type Parser, choice, el, lazy, many, regex } from "../src";
+import { type Parser, choice, el, lazy, many, regex } from "parsea";
 
 export type SExpression = string | readonly SExpression[];
 

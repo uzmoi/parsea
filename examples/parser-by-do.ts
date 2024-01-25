@@ -1,4 +1,4 @@
-import { type Config, type Parser, qo } from "../src";
+import { type Config, type Parser, qo } from "parsea";
 
 // For simplicity, the behavior may differ in a few cases.
 
@@ -36,7 +36,7 @@ const between = <T, S>(parser: Parser<T, S>, pre: Parser<unknown, S>, post = pre
 const or = <T, U, S>(left: Parser<T, S>, right: Parser<U, S>) =>
     qo<T | U, S>(perform => {
         const [success, result] = perform.try(
-            [false] as const,
+            [false],
             () => [true, perform(left)] as const,
         );
         return success ? result : perform(right);

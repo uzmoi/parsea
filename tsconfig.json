@@ -12,5 +12,6 @@
         "strict": true,
         "noEmit": true,
         "stripInternal": true,
+        "paths": { "parsea": ["./src"] },
     },
 }

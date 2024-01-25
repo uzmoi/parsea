@@ -1,4 +1,3 @@
-import { many, manyAccum } from "./combinator";
 import { type Config, Context } from "./context";
 import * as error from "./error";
 import { type ParseResult, createParseResult } from "./result";
@@ -109,18 +108,5 @@ export class Parser<out T = unknown, in S = never> {
         return new Parser<T | U, S>((state, context) => {
             return this.run(state, context) ?? updateState(state, value as U);
         });
-    }
-    /** @deprecated Use instead `.apply(manyAccum)` */
-    manyAccum<U>(
-        this: Parser<T>,
-        f: (accum: U, cur: T, config: Config) => U | void,
-        init: (config: Config) => U,
-        options?: { min?: number; max?: number },
-    ): Parser<U> {
-        return manyAccum(this, f, init, options);
-    }
-    /** @deprecated Use instead `.apply(many)` */
-    many(this: Parser<T>, options?: { min?: number; max?: number }): Parser<T[]> {
-        return many(this, options);
     }
 }

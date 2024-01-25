@@ -11,8 +11,12 @@
 - Added defaultValue parameter to `perform.try`.
 
 ## [0.9.0] - 2024-01-16
+### Added
+- Added helper `Perform` type to specify source type in `qo` function.
+
 ### Changed
 - Add source type parameter to `Parser`.
+- `Source` type changed to helper that returns the input type of the parser.
 
 ## [0.8.0] - 2023-06-24
 ### Added

@@ -134,7 +134,7 @@ export const regexGroup = (re: RegExp): Parser<RegExpExecArray, string> => {
 export const regex: {
     (re: RegExp): Parser<string, string>;
     (re: RegExp, groupId: number | string): Parser<string | undefined, string>;
-    <T>(
+    <const T>(
         re: RegExp,
         groupId: number | string,
         defaultValue: T,
