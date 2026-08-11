@@ -1,14 +1,10 @@
 import { type Config, Context } from "./context";
 import * as error from "./error";
-import { createParseResult, type ParseResult } from "./result";
-import { initState, type ParseState, updateState } from "./state";
+import { type ParseState, updateState } from "./state";
 
 export type Parsed<T> = T extends Parser<infer U> ? U : never;
 
 export type SourceOf<T> = [T] extends [Parser<unknown, infer U>] ? U : never;
-
-/** @deprecated Use {@link SourceOf} instead. */
-export type Source<T> = SourceOf<T>;
 
 export type ParseRunner<in T, out U, in S> = (
   this: void,
@@ -22,12 +18,7 @@ export type ParseRunner<in T, out U, in S> = (
  */
 export class Parser<out T = unknown, in S = never> {
   constructor(readonly run: ParseRunner<unknown, T, S>) {}
-  /** @deprecated Use `parseA` function instead. */
-  parse(this: this, source: ArrayLike<S>, config: Config = {}): ParseResult<T> {
-    const context = new Context(source, config);
-    const finalState = this.run(initState, context);
-    return createParseResult(finalState, context);
-  }
+
   apply<A extends readonly unknown[], R, S2>(
     this: this,
     f: (parser: Parser<T, S>, ...args: A) => Parser<R, S2>,
@@ -101,22 +92,7 @@ export class Parser<out T = unknown, in S = never> {
       return newStateB && updateState(newStateB, newStateA.v);
     });
   }
-  /** @deprecated */
-  and<U, S2>(this: this, parser: Parser<U, S2>): Parser<[T, U], S & S2> {
-    return this.andMap(parser, (a, b) => [a, b]);
-  }
-  /** @deprecated */
-  andMap<U, V, S2>(
-    this: this,
-    parser: Parser<U, S2>,
-    zip: (left: T, right: U) => V,
-  ): Parser<V, S & S2> {
-    return new Parser((state, context) => {
-      const newStateA = this.run(state, context);
-      const newStateB = newStateA && parser.run(newStateA, context);
-      return newStateB && updateState(newStateB, zip(newStateA.v, newStateB.v));
-    });
-  }
+
   /**
    * Applies this parser between other parsers.
    */
@@ -132,12 +108,7 @@ export class Parser<out T = unknown, in S = never> {
       return newStateC && updateState(newStateC, newStateB.v);
     });
   }
-  /** @deprecated */
-  or<U, S2>(this: this, parser: Parser<U, S2>): Parser<T | U, S & S2> {
-    return new Parser<T | U, S & S2>((state, context) => {
-      return this.run(state, context) ?? parser.run(state, context);
-    });
-  }
+
   /**
    * Makes this parser optional, returning undefined on failure.
    * If a default value is provided, return that value instead.
