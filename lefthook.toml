@@ -3,7 +3,7 @@
 parallel = true
 
 [pre-commit.commands.check]
-run = "npx biome check --no-errors-on-unmatched {staged_files}"
+run = "pnpm exec biome check --no-errors-on-unmatched {staged_files}"
 
 [pre-commit.commands.cSpell]
-run = "npx cspell lint --no-progress --no-must-find-files {staged_files}"
+run = "pnpm exec cspell lint --no-progress --no-must-find-files {staged_files}"
