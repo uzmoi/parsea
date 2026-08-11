@@ -2,8 +2,7 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "biomejs.biome",
   "editor.codeActionsOnSave": {
-    "quickfix.biome": "always",
-    "source.organizeImports.biome": "always",
+    "source.fixAll.biome": "explicit",
   },
   "[toml]": {
     "editor.defaultFormatter": "tamasfe.even-better-toml",

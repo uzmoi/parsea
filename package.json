@@ -17,6 +17,7 @@
     "build": "tsdown ./src/index.ts ./src/internal.ts --platform=neutral",
     "test": "vitest",
     "check": "biome check .",
+    "format": "biome format . --write",
     "spell": "cspell --no-progress ."
   },
   "repository": {

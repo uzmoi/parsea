@@ -19,12 +19,13 @@
         "useNumberNamespace": "off",
         "noParameterAssign": "off",
       },
+      "suspicious": {
+        "preset": "none",
+      },
     },
   },
   "javascript": {
     "formatter": {
-      "indentWidth": 4,
-      "lineWidth": 90,
       "arrowParentheses": "asNeeded",
     },
   },
