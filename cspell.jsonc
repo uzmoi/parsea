@@ -1,18 +1,15 @@
 {
   "version": "0.2",
   "useGitignore": true,
-  "ignorePaths": [".vscode", "package.json", "pnpm-*.yaml"],
+  "ignorePaths": [".vscode", "pnpm-*.yaml", "*.snap"],
   "words": [
     "accum",
     "biomejs",
     "emnorst",
-    "endswith",
     "fuga",
     "hoge",
     "parsea",
     "parsimmon",
-    "tsup",
     "uzmoi",
-    "vitest",
   ],
 }

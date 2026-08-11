@@ -1,6 +1,5 @@
 allowBuilds:
   '@biomejs/biome': false
-  esbuild: false
   lefthook: true
 
 minimumReleaseAge: 10080 # 1 week
