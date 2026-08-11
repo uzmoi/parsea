@@ -33,15 +33,15 @@
   },
   "homepage": "https://github.com/uzmoi/parsea#readme",
   "dependencies": {
-    "emnorst": "^1.0.0-next.2"
+    "emnorst": "1.0.0-next.2"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.2",
-    "@vitest/coverage-v8": "^2.1.1",
-    "cspell": "^8.14.4",
-    "lefthook": "^1.7.15",
+    "@biomejs/biome": "^2.5.6",
+    "@vitest/coverage-v8": "^4.1.10",
+    "cspell": "^10.0.1",
+    "lefthook": "^2.1.10",
     "tsdown": "^0.22.14",
-    "typescript": "^5.6.2",
-    "vitest": "^2.1.1"
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
   }
 }
